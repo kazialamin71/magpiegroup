@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report
+                id="action_report_proforma_report"
+                model="loan"
+                string="Print loan"
+                report_type="qweb-pdf"
+                name="cma_galib.report_loan"
+                file="cma_galib.report_loan"
+                menu="True"
+
+        />
+
+
+
+       </data>
+</openerp>

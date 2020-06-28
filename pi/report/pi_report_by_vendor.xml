@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="pi_report_by_vendor_view" model="ir.ui.view">
+            <field name="name">General Ledger</field>
+            <field name="model">pi.report.by.vendor</field>
+            <field name="inherit_id" ref="pi_common_report_view"/>
+            <field name="arch" type="xml">
+            <data>
+            <xpath expr="//field[@name='date_to']" position="after">
+                <field name="sortby"/>
+            </xpath>
+            </data>
+            </field>
+        </record>
+
+
+
+        <record id="action_pi_report_by_vendor_menu" model="ir.actions.act_window">  <!-- rename id -->
+            <field name="name">General Ledger</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pi.report.by.vendor</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="pi_report_by_vendor_view"/>
+            <field name="target">new</field>
+        </record>
+
+<!--        <record model="ir.values" id="action_account_general_ledger_values">-->
+<!--            <field name="model_id" ref="account.model_account_account" />-->
+<!--            <field name="name">General Ledger</field>-->
+<!--            <field name="key2">client_print_multi</field>-->
+<!--            <field name="value" eval="'ir.actions.act_window,' +str(ref('action_account_general_ledger_menu'))" />-->
+<!--            <field name="key">action</field>-->
+<!--            <field name="model">account.account</field>-->
+<!--        </record>-->
+
+        <menuitem
+            icon="STOCK_PRINT"
+            name="pi report"
+            parent="main_proformainvoice_menu"
+            action="action_pi_report_by_vendor_menu"
+            id="menu_pi_report"
+           />
+
+    </data>
+</openerp>

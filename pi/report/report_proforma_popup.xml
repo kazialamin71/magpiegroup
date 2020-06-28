@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_proforma_popup">
+            <t t-call="report.html_container">
+                <t t-call="report.external_layout">
+                    <t t-foreach="docs" t-as="o">
+                        <div class="page">
+                            <div class="row">
+                                <div class="col-xs-3"></div>
+                                <div class="col-xs-3"></div>
+                                <div class="col-xs-3"></div>
+                                <div class="col-xs-3">
+                                    Date: <span t-esc="time.strftime('%Y-%m-%d %H:%M:%S')"/>
+                                </div>
+                            </div>
+
+                            <div class="oe_structure"/>
+
+                            <div style="align:center">
+                                <h2>
+                                    <span>Proforma Invoice # </span>
+                                </h2>
+                            </div>
+
+<!--                            <div class="row">-->
+<!--                            <div class="col-md-6 pull-right">-->
+<!--                                <h1>-->
+<!--                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.name, 600, 100)" style="width:300px;height:50px"/>-->
+<!--                                </h1>-->
+<!--                            </div>-->
+<!--                                </div>-->
+
+<!--                            <div class="row">-->
+<!--                                <div class="col-xs-4">-->
+<!--                                    <strong>Vendor Name:</strong>-->
+<!--                                    <p t-field="o.vendor_id"/>-->
+<!--                                </div>-->
+
+<!--                                <div class="col-xs-4">-->
+<!--                                    <strong>Description:</strong>-->
+<!--                                    <p t-field="o.description"/>-->
+<!--                                </div>-->
+
+<!--                                <div class="col-xs-4">-->
+<!--                                    <strong>Conversion Rate:</strong>-->
+<!--                                    <p t-field="o.equivalant"/>-->
+<!--                                </div>-->
+
+<!--                                <div class="col-xs-4">-->
+<!--                                    <strong>Total:</strong>-->
+<!--                                    <p t-field="o.total"/>-->
+<!--                                </div>-->
+<!--                                <div class="col-xs-4">-->
+<!--                                    <strong>Grand Total:</strong>-->
+<!--                                    <p t-field="o.grand_total"/>-->
+<!--                                </div>-->
+<!--                                <div class="col-xs-4">-->
+<!--                                    <strong>Paid Amount:</strong>-->
+<!--                                    <p t-field="o.paid"/>-->
+<!--                                </div>-->
+<!--                                <div class="col-xs-4">-->
+<!--                                    <strong>Due:</strong>-->
+<!--                                    <p t-field="o.due"/>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                            <hr/>-->
+<!--                            <br/><br/>-->
+<!--                            <div align="center">-->
+<!--                            <h2>Product Information</h2>-->
+<!--                            </div>-->
+
+<!--                            <table class="table table-condensed">-->
+<!--                                <thead>-->
+<!--                                    <tr>-->
+<!--                                        <th>S.N.</th>-->
+<!--                                        <th>Product Id</th>-->
+<!--                                        <th>Quantity</th>-->
+<!--                                        <th>Unit Price($)</th>-->
+<!--                                        <th>Unit Price(BDT)</th>-->
+<!--                                        <th>Total Price($)</th>-->
+<!--                                        <th>Total Price(BDT)</th>-->
+
+<!--                                    </tr>-->
+<!--                                </thead>-->
+<!--                                <tbody class="product_line_tbody">-->
+<!--                                    <t t-set="i" t-value="1" />-->
+<!--                                    <t t-foreach="o.product_lines" t-as="z">-->
+<!--                                        <tr>-->
+<!--                                            <td>-->
+<!--                                                <span t-esc="i"/>-->
+<!--                                                <t t-set="i" t-value="i+1"/>-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                <span t-field="z.product_id"/>-->
+
+<!--                                            </td>-->
+
+<!--                                            <td>-->
+<!--                                                <span t-field="z.quantity"/>-->
+
+<!--                                            </td>-->
+<!--                                                                                        <td>-->
+<!--                                                <span t-field="z.cunit_price"/>-->
+
+<!--                                            </td>-->
+<!--                                                                                        <td>-->
+<!--                                                <span t-field="z.bunit_price"/>-->
+
+<!--                                            </td>-->
+<!--                                                                                        <td>-->
+<!--                                                <span t-field="z.ctotal_price"/>-->
+
+<!--                                            </td>-->
+<!--                                                                                                                                    <td>-->
+<!--                                                <span t-field="z.btotal_price"/>-->
+
+<!--                                            </td>-->
+
+
+
+
+<!--                                        </tr>-->
+
+<!--                                    </t>-->
+
+<!--                                </tbody>-->
+
+<!--                            </table>-->
+
+<!--                             <br/><br/>-->
+<!--                            <div align="center"><h2>Service Information</h2></div>-->
+
+
+<!--                            <table class="table table-condensed">-->
+<!--                                <thead>-->
+<!--                                    <tr>-->
+<!--                                        <th>S.N.</th>-->
+<!--                                        <th>Service Name</th>-->
+<!--                                        <th>Total Cost</th>-->
+<!--                                    </tr>-->
+<!--                                </thead>-->
+<!--                                <tbody class="product_line_tbody">-->
+<!--                                    <t t-set="i" t-value="1" />-->
+<!--                                    <t t-foreach="o.service_lines" t-as="s">-->
+<!--                                        <tr>-->
+<!--                                            <td>-->
+<!--                                                <span t-esc="i"/>-->
+<!--                                                <t t-set="i" t-value="i+1"/>-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                <span t-field="s.service_name"/>-->
+
+<!--                                            </td>-->
+
+<!--                                            <td>-->
+<!--                                                <span t-field="s.total_cost"/>-->
+
+<!--                                            </td>-->
+<!--                                        </tr>-->
+
+<!--                                    </t>-->
+
+<!--                                </tbody>-->
+
+<!--                            </table>-->
+
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>

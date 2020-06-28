@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report
+                id="action_report_proforma_report"
+                model="proforma.invoice"
+                string="Print PI"
+                report_type="qweb-pdf"
+                name="cma_galib.report_proforma"
+                file="cma_galib.report_proforma"
+                menu="True"
+        />
+                <report
+            id="action_report_general_ledger"
+            model="pi.report.by.vendor"
+            string="pi"
+            report_type="qweb-pdf"
+            name="cma_galib.report_proforma_popup"
+            file="cma_galib.report_proforma_popup"
+            menu="False"
+            auto="False"
+        />
+
+
+
+       </data>
+</openerp>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <!--loan_invoice form-->
+        <record model="ir.ui.view" id="loan_form_view" >
+			<field name="name">Basic Information</field>
+			<field name="model">loan</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="LOAN">
+                    <header>
+                        <button name="confirm" string="Confirm" class="oe_highlight" type="object" confirm="Are you sure you want to confirm Loan?"/>
+                        <button name="cancel_loan" string="Cancel Loan" type="object" confirm="Are you sure you want to Cancel Loan?"/>
+                        <button name="sale_loan" string="Sale Loan" type="object" confirm="Are you sure you want to Sale the Loan  ?"/>
+
+                        <button name="make_return" string="Return" type="object" confirm="Are you sure you want to return SO?"/>
+                         <button name="add_service" type="object" string="Add Service"/>
+                         <button name="print_loan" type="object" string="Print"/>
+                        <button name="add_receipt" type="object" string="Loan Receipt"/>
+
+                </header>
+                    <sheet>
+                        <h1>
+                            <label string="loan"/>
+                        </h1>
+                        <group string="Basic Information">
+                            <group>
+                                <field name="customer_id"/>
+                                <field name="exp_return_date"/>
+                                <field name="description"/>
+                                <field name="total"/>
+                                <field name="pi_id" on_change="onchange_pi(pi_id, context)"/>
+                            </group>
+
+                        </group>
+
+                        <!--Tab information-->
+                        <notebook>
+
+                            <page string="Products Information">
+
+                                <field name="product_lines" mode="tree">
+                                     <tree string="Select Deliveries" editable="top">
+                                        <field name="product_id"/>
+                                        <field name="pi_value"/>
+                                        <field name="price_ref"/>
+
+                                        <field name="currencyunit_price" on_change="onchange_unit(product_id,quantity,currencyunit_price,context)"/>
+                                         <field name="quantity" on_change="onchange_quantity(product_id,quantity,currencyunit_price,context)"/>
+                                        <field name="currencytotal_price"/>
+                                        <field name="bdt_rates" on_change="onchange_conversion(product_id,currencytotal_price,currencyunit_price,bdt_rates,quantity,context)"/>
+                                        <field name="bdtunit_price"/>
+                                        <field name="bdttotal_price"/>
+
+                                    </tree>
+                                </field>
+                                <field name="ptotal"/>
+                                 <field name="service_lines" mode="tree">
+                                    <tree string="Select Deliveries" editable="top">
+                                        <field name="service_name"/>
+                                        <field name="service_cost"/>
+                                        <field name="quantity"/>
+                                        <field name="total_cost"/>
+                                    </tree>
+                                </field>
+                                <field name="stotal"/>
+                            </page>
+
+                            <page string="Payment Info">
+                        <field name="receipt_lines" mode="tree">
+                                    <tree string="Select Deliveries" editable="top">
+                                        <field name="date"/>
+                                        <field name="type"/>
+                                        <field name="amount"/>
+                                        <field name="usd_amount"/>
+                                    </tree>
+                                </field>
+
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!--loan_invoice starting action-->
+        <record model="ir.actions.act_window" id="loan_invoice_new_action" >
+			<field name="name">loan Invoice</field>
+			<field name="res_model">loan</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="context" eval="{'search_default_my_courses': 1}"/>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Click to create a new loan Invoice.
+				</p>
+			</field>
+		</record>
+
+
+
+        <!--loan Invoice record list tree-->
+        <record model="ir.ui.view" id="loan_invoice_tree_view" >
+            <field name="name">loan.tree</field>
+            <field name="model">loan</field>
+            <field name="arch" type="xml">
+                <tree string="loan Invoice List" default_order='id desc'>
+
+                    <field name="name" />
+                    <field name="customer_id" />
+                    <field name="description" />
+                    <field name="total" />
+                    <field name="state" />
+
+                </tree>
+            </field>
+        </record>
+
+        <menuitem id="main_loaninvoice_menu" name="loan Invoice"/>
+
+        <menuitem id="loaninvoice_menu" name="loan Invoice" parent="main_loaninvoice_menu"/>
+        <menuitem id="loan Invoice_menu" name="Loan List" parent="main_loaninvoice_menu" action="loan_invoice_new_action"/>
+
+
+        <menuitem name="loan Invoice" id="main_loaninvoice_menu"
+            groups="base.group_sale_salesman"
+            parent="base.menu_base_partner" sequence="5" />
+
+
+
+
+
+
+
+
+    </data>
+</openerp>

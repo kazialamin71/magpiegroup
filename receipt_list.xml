@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_loan_receipt_res_partner_form">
+            <field name="name">res.partner.property.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Accounting']" position="after">
+                        <page string="Receipt List" >
+                            This is  a test case for mufti muntasir Ahmed
+                        </page>
+                   </xpath>
+
+            </field>
+        </record>
+
+
+
+    </data>
+</openerp>

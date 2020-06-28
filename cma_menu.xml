@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="pending_cma_module_action" model="ir.actions.act_window">
+            <field name="name">Pending PI List</field>
+            <field name="res_model">proforma.invoice</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state', '=', 'pending')]</field>
+            <field name="context">{}</field>
+        </record>
+
+
+        <record id="confirm_cma_module_action" model="ir.actions.act_window">
+            <field name="name">Confirm PI List</field>
+            <field name="res_model">proforma.invoice</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state', '=', 'confirm')]</field>
+            <field name="context">{}</field>
+        </record>
+
+
+        <record id="received_cma_module_action" model="ir.actions.act_window">
+            <field name="name">Received PI List</field>
+            <field name="res_model">proforma.invoice</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state', '=', 'received')]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record id="cancel_cma_module_action" model="ir.actions.act_window">
+            <field name="name">Cancelled PI List</field>
+            <field name="res_model">proforma.invoice</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state', '=', 'cancel')]</field>
+            <field name="context">{}</field>
+        </record>
+
+
+
+
+        <record id="pending_cma_loan_module_action" model="ir.actions.act_window">
+            <field name="name">Pending Loan List</field>
+            <field name="res_model">loan</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state', '=', 'pending')]</field>
+            <field name="context">{}</field>
+        </record>
+
+
+
+
+        <record id="done_cma_loan_module_action" model="ir.actions.act_window">
+            <field name="name">Confirmed Loan List</field>
+            <field name="res_model">loan</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state', '=', 'done')]</field>
+            <field name="context">{}</field>
+        </record>
+
+
+        <record id="return_cma_loan_module_action" model="ir.actions.act_window">
+            <field name="name">Retrun Loan List</field>
+            <field name="res_model">loan</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state', '=', 'return')]</field>
+            <field name="context">{}</field>
+        </record>
+
+
+         <record id="sale_cma_loan_module_action" model="ir.actions.act_window">
+            <field name="name">Sale Loan List</field>
+            <field name="res_model">loan</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state', '=', 'sale')]</field>
+            <field name="context">{}</field>
+        </record>
+
+
+        <record id="cancel_cma_loan_module_action" model="ir.actions.act_window">
+            <field name="name">Sale Loan List</field>
+            <field name="res_model">loan</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state', '=', 'cancel')]</field>
+            <field name="context">{}</field>
+        </record>
+
+
+
+        <record id="payment_cma_loan_module_action" model="ir.actions.act_window">
+            <field name="name">PI Payment List</field>
+            <field name="res_model">pi.payment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+
+
+        <record id="receipt_cma_loan_module_action" model="ir.actions.act_window">
+            <field name="name">Loan Money List</field>
+            <field name="res_model">loan.receipt</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+
+
+
+
+
+
+
+
+        <menuitem id="cma_module_menu" name="CMA"/>
+
+        <menuitem id="cma_module_title_menu" name="PI List" parent="cma_module_menu" sequence="1"/>
+
+        <menuitem id="cma_module_pending_menu" parent="cma_module_title_menu" sequence="1" name="Pending PI" action="pending_cma_module_action"/>
+        <menuitem id="cma_module_confirm_menu" parent="cma_module_title_menu" sequence="2" name="Confirmed PI" action="confirm_cma_module_action"/>
+
+        <menuitem id="cma_module_received_menu" parent="cma_module_title_menu" sequence="4" name="Received PI" action="received_cma_module_action"/>
+        <menuitem id="cma_module_cancel_menu" parent="cma_module_title_menu" sequence="5" name="Cancel PI" action="cancel_cma_module_action"/>
+
+        <menuitem id="cma_loan_module_title_menu" name="Loan List" parent="cma_module_menu" sequence="2"/>
+
+        <menuitem id="cma_module_pending_menu" parent="cma_loan_module_title_menu" sequence="1" name="Pending Loan List" action="pending_cma_loan_module_action"/>
+        <menuitem id="cma_module_done_menu" parent="cma_loan_module_title_menu" sequence="2" name="Confirmed Loan List" action="done_cma_loan_module_action"/>
+        <menuitem id="cma_module_return_menu" parent="cma_loan_module_title_menu" sequence="3" name="Returned Loan List" action="return_cma_loan_module_action"/>
+        <menuitem id="cma_module_sale_menu" parent="cma_loan_module_title_menu" sequence="4" name="Sale Loan List" action="sale_cma_loan_module_action"/>
+        <menuitem id="cma_module_cancelled_menu" parent="cma_loan_module_title_menu" sequence="5" name="Cancelled Loan List" action="cancel_cma_loan_module_action"/>
+
+
+        <menuitem id="cma_payment_receive_title_menu" name="Loan List" parent="cma_module_menu" sequence="3"/>
+        <menuitem id="cma_payment_title_menu" parent="cma_payment_receive_title_menu" sequence="1" name="Payment List" action="payment_cma_loan_module_action"/>
+
+        <menuitem id="cma_receive_title_menu" parent="cma_payment_receive_title_menu" sequence="2" name="Receipt List" action="receipt_cma_loan_module_action"/>
+
+
+
+    </data>
+</openerp>

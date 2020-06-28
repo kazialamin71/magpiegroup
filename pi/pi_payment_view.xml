@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!--proforma_invoice form-->
+        <record model="ir.ui.view" id="pi_payment_form_view" >
+			<field name="name">PI Payment Information</field>
+			<field name="model">pi.payment</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="PI">
+                    <sheet>
+
+                        <group string="Basic Information">
+                            <group>
+                                <field name="date"/>
+                                <field name="pi_id"/>
+                                <field name="partner_id"/>
+                                <field name="amount"/>
+                                <field name="usd_amount"/>
+
+
+                            </group>
+
+                        </group>
+
+
+                        <!--Tab information-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+                <record model="ir.actions.act_window" id="action_pi_line_product_tree">
+            <field name="context">{}</field><!-- force empty -->
+            <field name="name">proforma</field>
+            <field name="res_model">proforma.invoice</field>
+            <field name="view_id" ref="proforma_invoice_tree_view"/>
+        </record>
+
+
+
+                <record id="view_product_template_pi_buttons_from" model="ir.ui.view">
+            <field name="name">product.template.pi.button.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="groups_id" eval="[(4, ref('purchase.group_purchase_user'))]"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='buttons']" position="inside">
+                   <button class="oe_inline oe_stat_button" name="action_view_pi" type="object"
+                       icon="fa-shopping-cart">
+<!--                       <field string="PI" name="pi_count" widget="statinfo"/>-->
+                   </button>
+                </xpath>
+            </field>
+        </record>
+
+
+
+
+        <!--proforma_invoice starting action-->
+        <record model="ir.actions.act_window" id="pi_payment_new_action" >
+			<field name="name">Proforma Invoice</field>
+			<field name="res_model">pi.payment</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="context" eval="{'search_default_my_courses': 1}"/>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Click to create a new Payment.
+				</p>
+			</field>
+		</record>
+
+
+
+        <!--Proforma Invoice record list tree-->
+        <record model="ir.ui.view" id="proforma_payment_tree_view" >
+            <field name="name">proforma.payment</field>
+            <field name="model">pi.payment</field>
+            <field name="arch" type="xml">
+                <tree string="Proforma Invoice List" default_order='id desc'>
+                                <field name="partner_id"/>
+
+                                <field name="pi_id"/>
+                                <field name="amount"/>
+                                <field name="date"/>
+                                <field name="type"/>
+                                <field name="amount"/>
+
+
+                </tree>
+            </field>
+        </record>
+
+        <menuitem id="Proforma_payment_menu" name="PI Payment" parent="main_proformainvoice_menu" action="pi_payment_new_action"/>
+
+    </data>
+</openerp>

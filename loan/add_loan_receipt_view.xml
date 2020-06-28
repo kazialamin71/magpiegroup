@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!--proforma_invoice form-->
+        <record model="ir.ui.view" id="loan_receipt_form_view" >
+			<field name="name">Loan Receipt Information</field>
+			<field name="model">loan.receipt</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="PI">
+                    <sheet>
+
+                        <group string="Basic Information">
+                            <group>
+                                <field name="date"/>
+                                <field name="loan_id"/>
+                                <field name="partner_id"/>
+                                <field name="amount"/>
+                                <field name="usd_amount"/>
+                            </group>
+
+                        </group>
+
+
+                        <!--Tab information-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!--proforma_invoice starting action-->
+        <record model="ir.actions.act_window" id="loan_receipt_new_action" >
+			<field name="name">Loan Receipt</field>
+			<field name="res_model">loan.receipt</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="context" eval="{'search_default_my_courses': 1}"/>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Click to create a new Payment.
+				</p>
+			</field>
+		</record>
+
+
+
+        <!--Proforma Invoice record list tree-->
+        <record model="ir.ui.view" id="loan_receipt_tree_view">
+            <field name="name">Loan Receipt</field>
+            <field name="model">loan.receipt</field>
+            <field name="arch" type="xml">
+                <tree string="Proforma Invoice List" default_order='id desc'>
+
+
+                                <field name="partner_id"/>
+                                <field name="amount"/>
+                                <field name="date"/>
+                                <field name="type"/>
+                                <field name="usd_amount"/>
+                                <field name="con_rate"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <menuitem id="Proforma_loan_receipt_menu" name="Loan receipt" parent="main_loaninvoice_menu" action="loan_receipt_new_action"/>
+
+    </data>
+</openerp>

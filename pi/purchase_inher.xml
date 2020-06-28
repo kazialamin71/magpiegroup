@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+
+
+<!--        <record id="report_action" model="ir.actions.act_window">-->
+<!--            <field name="name">Stickered</field>-->
+<!--            <field name="res_model">diagnosis.sticker</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="view_type">form</field>-->
+<!--            <field name="view_mode">tree,form</field>-->
+<!--            <field name="context">{}</field>-->
+<!--        </record>-->
+
+        <record model="ir.ui.view" id="view_purchase_form_inher">
+            <field name="name">purchase.order.form.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="PI Info">
+                        <group>
+                        <field name="pi_id"/>
+                        </group>
+
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+
+<!--        &lt;!&ndash; expense type tree &ndash;&gt;-->
+<!--        <record model="ir.ui.view" id="report_tree">-->
+<!--            <field name="name">leih</field>-->
+<!--            <field name="model">diagnosis.sticker</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--             <tree string="Alu List">-->
+<!--                        <field name="name"/>-->
+<!--                        <field name="bill_register_id"/>-->
+<!--                        <field name="department_id"/>-->
+<!--                        <field name="state"/>-->
+
+
+
+<!--            </tree>-->
+<!--            </field>-->
+<!--        </record>-->
+
+
+
+
+<!--&lt;!&ndash;        <menuitem name="Doctors" id="leih_doctors_menu" parent="leih_menu"/>&ndash;&gt;-->
+<!--        <menuitem name="Report" id="report_print" parent="leih_group_menu" action="report_action"/>-->
+
+
+    </data>
+</openerp>
